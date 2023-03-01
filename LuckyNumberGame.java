@@ -1,46 +1,57 @@
 import java.util.Scanner;
 
 public class LuckyNumberGame {
+
     public static void main(String[] args) {
-        // Create a new Scanner object to read input from the console
-        Scanner input = new Scanner(System.in);
-        
-        // Prompt the user to enter the number of rounds to play
-        System.out.print("Enter the number of rounds you want to play: ");
-        int rounds = input.nextInt(); // Read the number of rounds from the user
-        
-        // Assume that the secret number is 7, and initialize the score to 0
-        int secretNumber = 7;
-        int score = 0;
-        
-        // Use a for loop to repeat the game for the specified number of rounds
-        for (int i = 1; i <= rounds; i++) {
-            // Prompt the user to enter their lucky number for the current round
-            System.out.printf("Round %d: Enter your lucky number: ", i);
-            int luckyNumber = input.nextInt(); // Read the user's lucky number
-            
-            // Determine the outcome of the round based on the rules specified in the problem
-            if (luckyNumber % secretNumber == 0) { // If the remainder is zero, it's a draw
-                System.out.println("Draw!");
-                score++; // Increment the score by 1 for a draw
-            } else if (luckyNumber % 2 == 0) { // If the number is even, it's a win
-                System.out.println("You win!");
-                score += 3; // Increment the score by 3 for a win
-            } else { // If the number is odd, it's a loss
-                System.out.println("You lose!");
-                score -= 3; // Decrement the score by 3 for a loss
+
+        // get number of rounds from user
+        Scanner scanner = new Scanner(System.in);
+        int numRounds = 0;
+        while (numRounds <= 0) {
+            System.out.print("Enter number of rounds (must be a positive integer): ");
+            if (scanner.hasNextInt()) {
+                numRounds = scanner.nextInt();
+                if (numRounds <= 0) {
+                    System.out.println("Error: Number of rounds must be a positive integer.");
+                }
+            } else {
+                System.out.println("Error: Invalid input. Please enter a positive integer.");
+                scanner.next(); // consume invalid input
             }
         }
-        
-        // Print the final score and a message indicating whether the user has won or lost
-        System.out.printf("Your total score is %d.\n", score);
-        if (score > 0) {
-            System.out.println("Congratulations, you win!");
-        } else {
-            System.out.println("Sorry, you lose.");
+
+        int secretNumber = 7; // arbitrary secret number
+
+        int totalScore = 0; // initialize score to zero
+
+        //The for loop repeats the game for the specified number of rounds
+        for (int i = 1; i <= numRounds; i++) {
+            System.out.print("Enter lucky number for round " + i + ": ");
+            int luckyNumber = scanner.nextInt();
+
+            int remainder = luckyNumber % secretNumber;
+
+            if (remainder == 0) {
+                System.out.println("Draw for round " + i);
+                totalScore++;
+            } else if (remainder % 2 == 0) {
+                System.out.println("Win for round " + i);
+                totalScore += 3;
+            } else {
+                System.out.println("Loss for round " + i);
+                totalScore -= 3;
+            }
         }
-        
-        // Close the Scanner object to release resources
-        input.close();
+
+        // check if player wins
+        if (totalScore > 0) {
+            System.out.println("Congratulations, you win! Total score: " + totalScore);
+        } else {
+            System.out.println("Sorry, you lose. Total score: " + totalScore);
+        }
+
+        // close scanner
+        scanner.close();
     }
+
 }
