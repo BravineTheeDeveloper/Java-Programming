@@ -23,7 +23,7 @@ public class ComputeArea{
 		Rectangle rec=new Rectangle();
 		Scanner reader=new Scanner(System.in);
 		int len, wid;
-		System.out.println("Enter length and width of Rectangle");
+		System.out.println("Enter length and width of Rectangle: ");
 		len=reader.nextInt();
 		wid=reader.nextInt();
 		rec.setLength(len);

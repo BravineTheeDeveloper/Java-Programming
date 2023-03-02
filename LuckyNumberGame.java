@@ -25,20 +25,20 @@ public class LuckyNumberGame {
         int totalScore = 0; // initialize score to zero
 
         //The for loop repeats the game for the specified number of rounds
-        for (int i = 1; i <= numRounds; i++) {
-            System.out.print("Enter lucky number for round " + i + ": ");
+        for (int x = 1; x <= numRounds; x++) {
+            System.out.print("Enter lucky number for round " + x + ": ");
             int luckyNumber = scanner.nextInt();
 
             int remainder = luckyNumber % secretNumber;
 
             if (remainder == 0) {
-                System.out.println("Draw for round " + i);
+                System.out.println("Draw for round " + x);
                 totalScore++;
             } else if (remainder % 2 == 0) {
-                System.out.println("Win for round " + i);
+                System.out.println("Win for round " + x);
                 totalScore += 3;
             } else {
-                System.out.println("Loss for round " + i);
+                System.out.println("Loss for round " + x);
                 totalScore -= 3;
             }
         }
