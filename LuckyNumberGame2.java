@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class LuckyNumberGame2 {
     public static void main(String[] args) {
         // Create a new Scanner object to read input from the console
