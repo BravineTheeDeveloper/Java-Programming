@@ -17,6 +17,6 @@ public class Dialog
         average = (double) sum/2; //Typecasting
 
         //Display the output
-        JOptionPane.showMessageDialog(null, "Sum is: "+sum +"Average is:"+average);
+        JOptionPane.showMessageDialog(null, "Sum is: "+sum +"Average is: "+average);
     }
 }
