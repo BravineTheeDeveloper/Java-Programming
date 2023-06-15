@@ -12,7 +12,7 @@ public class Dialog
         number1 = Integer.parseInt(firstNumber);
         number2 = Integer.parseInt(secondNumber);
 
-        //Compute sum and avarage
+        //Compute sum and average
         sum = number1 + number2;
         average = (double) sum/2; //Typecasting
 
